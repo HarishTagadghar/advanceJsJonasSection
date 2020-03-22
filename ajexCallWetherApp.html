@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    let getWether = function (){
+        fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=san')
+        .then(result => {
+                    console.log(result);
+                   return result.json();
+        })
+        .then(resultJson => {
+            console.log(resultJson);
+            console.log(`location is ${resultJson[0].title} and where on earth id(woeid) is ${resultJson[0].woeid} `);
+            
+            
+        })
+        .catch(error =>{
+            console.log(error);
+            
+        })
+    }
+
+getWether();
+
+</script>
+</body>
+
+</html>
