@@ -32,11 +32,15 @@ getWether();
 // async advance method 
 
 async function getWethernew() {
-        let data = await  fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=san');
+        try{
+            let data = await  fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=san');
         let datajson = await data.json();
         console.log(datajson);
         
         console.log(`location is ${datajson[0].title} and where on earth id(woeid) is ${datajson[0].woeid} `);
+        }catch(error){
+alert(error)
+        }
         
 }
 getWethernew();
