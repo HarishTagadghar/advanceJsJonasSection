@@ -15,8 +15,8 @@
                    return result.json();
         })
         .then(resultJson => {
-            console.log(resultJson);
-            console.log(`location is ${resultJson[0].title} and where on earth id(woeid) is ${resultJson[0].woeid} `);
+            // console.log(resultJson);
+            // console.log(`location is ${resultJson[0].title} and where on earth id(woeid) is ${resultJson[0].woeid} `);
             
             
         })
@@ -28,6 +28,18 @@
 
 getWether();
 
+
+// async advance method 
+
+async function getWethernew() {
+        let data = await  fetch('https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=san');
+        let datajson = await data.json();
+        console.log(datajson);
+        
+        console.log(`location is ${datajson[0].title} and where on earth id(woeid) is ${datajson[0].woeid} `);
+        
+}
+getWethernew();
 </script>
 </body>
 
